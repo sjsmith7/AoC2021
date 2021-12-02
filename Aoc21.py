@@ -39,7 +39,8 @@ def sliding_window_day_1_part_2():
     print(total_increase)
 
 
-# Found a sliding window on stack, helped a lot.
+# Found a sliding window online, helped a lot.
+# https://dock2learn.com/tech/implement-a-sliding-window-using-python/
 def sliding_window_online(elements, window_size):
 
     if len(elements) <= window_size:
