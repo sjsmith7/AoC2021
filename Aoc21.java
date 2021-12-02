@@ -14,7 +14,6 @@ public class HelloWorld {
         String fileName = "C:\\Users\\shaij\\Documents\\input.txt";
         List<String> listOfDepths = new ArrayList<>();
         try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
-            //stream.forEach(System.out::println);
             listOfDepths = br.lines().collect(Collectors.toList());
             System.out.println(listOfDepths);
         } catch (IOException e) {
