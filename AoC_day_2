@@ -8,9 +8,10 @@ commands_slim = ["forward 5",
 "down 8",
 "forward 2"]
 
+# Begin part 1
+
 depth = 0
 horizontal = 0
-
 
 for cmd in commands:
   if (cmd.split()[0] == ("forward")):
@@ -23,3 +24,23 @@ for cmd in commands:
     depth = depth - int(cmd.split()[1])
 
 print(horizontal * depth) #1714680
+
+#End Part 1
+#Begin Part 2
+
+depth = 0
+horizontal = 0
+aim = 0
+
+for cmd in commands:
+  if (cmd.split()[0] == ("forward")):
+    horizontal = horizontal + int(cmd.split()[1])
+    depth += aim * int(cmd.split()[1])
+
+  elif (cmd.split()[0] == ("down")):
+    aim += + int(cmd.split()[1])
+
+  elif (cmd.split()[0] == ("up")):
+     aim += - int(cmd.split()[1])
+
+print(horizontal * depth)
