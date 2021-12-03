@@ -43,4 +43,4 @@ for cmd in commands:
   elif (cmd.split()[0] == ("up")):
      aim += - int(cmd.split()[1])
 
-print(horizontal * depth)
+print(horizontal * depth) #1963088820
