@@ -31,7 +31,7 @@ def day_3():
                 zeros_column_count[j] += 1
 
     gamma_rate = []
-    for i in range(len(diag_report[0])):
+    for i in range(columns):
         if ones_column_count[i] > zeros_column_count[i]:
             gamma_rate.append("1")
         else:
@@ -39,7 +39,7 @@ def day_3():
     gamma = "".join(gamma_rate)
 
     epsilon_rate = []
-    for i in range(len(diag_report[0])):
+    for i in range(columns):
         if zeros_column_count[i] < ones_column_count[i]:
             epsilon_rate.append("0")
         else:
@@ -54,3 +54,4 @@ def day_3():
 
 if __name__ == '__main__':
     day_3() #4191876
+
