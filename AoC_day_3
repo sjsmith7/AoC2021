@@ -1,0 +1,60 @@
+# part 1 - yuck, but a gold star
+
+# thanks AJ https://wtools.io/convert-list-to-json-array
+
+file = "C:\\Users\\shaij\\Documents\\AoC_day_3\\input.txt"
+
+
+def file_reader():
+    with open(file) as f:
+        data = f.readlines()
+        # new line, bye bye bye
+        data = [x.rstrip() for x in data]
+    return data
+
+
+def day_3():
+    diag_report = file_reader()
+    # power_consumption = gamma * epsilon
+
+    columns = len(diag_report[0])
+    col_to_count = {}
+    for col in range(columns):
+        col_to_count[col] = 0
+
+    columns = len(diag_report[0])
+    negative_col_to_count = {}
+    for col in range(columns):
+        negative_col_to_count[col] = 0
+
+    for i in range(len(diag_report)):
+        for j in range(len(diag_report[i])):
+            if int(diag_report[i][j]) == 1:
+                col_to_count[j] += int(diag_report[i][j])
+            elif int(diag_report[i][j]) == 0:
+                negative_col_to_count[j] += 1
+
+    gamma_rate = []
+    for i in range(len(diag_report[0])):
+        if col_to_count[i] > negative_col_to_count[i]:
+            gamma_rate.append("1")
+        else:
+            gamma_rate.append("0")
+    gamma = "".join(gamma_rate)
+
+    epsilon_rate = []
+    for i in range(len(diag_report[0])):
+        if negative_col_to_count[i] < col_to_count[i]:
+            epsilon_rate.append("0")
+        else:
+            epsilon_rate.append("1")
+
+    epsilon_rate = "".join(epsilon_rate)
+
+    print(gamma)
+    print(epsilon_rate)
+    print(int(gamma, 2) * int(epsilon_rate, 2))
+
+
+if __name__ == '__main__':
+    day_3()
