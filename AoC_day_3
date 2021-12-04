@@ -1,5 +1,3 @@
-# part 1 - yuck, but a gold star
-
 # thanks AJ https://wtools.io/convert-list-to-json-array
 
 file = "C:\\Users\\shaij\\Documents\\AoC_day_3\\input.txt"
@@ -15,28 +13,26 @@ def file_reader():
 
 def day_3():
     diag_report = file_reader()
-    # power_consumption = gamma * epsilon
-
+    ones_column_count = {}
+    zeros_column_count = {}
+    
     columns = len(diag_report[0])
-    col_to_count = {}
     for col in range(columns):
-        col_to_count[col] = 0
+        ones_column_count[col] = 0
 
-    columns = len(diag_report[0])
-    negative_col_to_count = {}
     for col in range(columns):
-        negative_col_to_count[col] = 0
+        zeros_column_count[col] = 0
 
     for i in range(len(diag_report)):
         for j in range(len(diag_report[i])):
             if int(diag_report[i][j]) == 1:
-                col_to_count[j] += int(diag_report[i][j])
+                ones_column_count[j] += int(diag_report[i][j])
             elif int(diag_report[i][j]) == 0:
-                negative_col_to_count[j] += 1
+                zeros_column_count[j] += 1
 
     gamma_rate = []
     for i in range(len(diag_report[0])):
-        if col_to_count[i] > negative_col_to_count[i]:
+        if ones_column_count[i] > zeros_column_count[i]:
             gamma_rate.append("1")
         else:
             gamma_rate.append("0")
@@ -44,7 +40,7 @@ def day_3():
 
     epsilon_rate = []
     for i in range(len(diag_report[0])):
-        if negative_col_to_count[i] < col_to_count[i]:
+        if zeros_column_count[i] < ones_column_count[i]:
             epsilon_rate.append("0")
         else:
             epsilon_rate.append("1")
@@ -57,4 +53,4 @@ def day_3():
 
 
 if __name__ == '__main__':
-    day_3()
+    day_3() #4191876
