@@ -68,4 +68,4 @@ def day_4_part_1():
                             return total_unmarked * num_that_was_called
 
 if __name__ == '__main__':
-    print(day_4_part_1())
+    print(day_4_part_1()) #51776
